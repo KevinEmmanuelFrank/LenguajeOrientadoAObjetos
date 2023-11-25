@@ -1,0 +1,41 @@
+Para explicar las funcionalidades del trabajo, voy a ir desarrollando desde la clase Main. 
+En la clase main se crea un Inicializador para dejar más limpia la clase y que la lógica se desarrolle en las demás clases. 
+En la línea 6 se ejecuta el método iniciar de la clase Inicializador. 
+
+En la clase inicializador se comienza con el método iniciar que permite al usuario elegir entre diferentes funcionalidades: Registrarse, Iniciar Sesión o Salir.
+Los booleanos flag y login nos sirven como banderas para ejecutar o no ciertas funcionalidades. 
+Vemos que la interfaz se realizará siempre que flag tenga el valor true en la línea 12. 
+Solo tomará el valor false en la línea 29, 35, 40 y 44. Cabe destacar que en los casos de la linea 29 y 35, tambien login se vuelve verdadero ya que en estos casos consideramos al usuario como loggeado.
+
+Empezando por el botón "Registrarse" que representa el case 1 de la línea 24, vemos que se realiza la función registrar de la clase Registro que devuelve un usuario linea 26.
+Si este usuario no es nulo se considera como un loggeo exitoso y se procede a la linea 49. (ya veremos más en detalle como funciona el registro). 
+
+Con la opción Iniciar Sesión nos sucede algo similar solo que en este caso llamamos a la función ingreso de la clase Ingreso linea 33. 
+Si alguno de estos casos se cumple correctamente se realiza, como ya explicamos, el loggeo del usuario.  
+Esto se produce en la linea 51 donde se llama a la función abrirBiblioteca de la clase Biblioteca. 
+Antes de avanzar con la biblioteca empezaremos viendo como se produce el loggeo.
+
+Nos posicionamos ahora en la clase Registro para explicar mejor como se produce el mismo. 
+En el método registrar del Registro, se comienza solicitando los datos al usuario (línea 12 a la 15) para luego validar los datos ingresados en la linea 16. 
+La función validarDatosIngresados de la linea 60 en adelante, recibe los datos ingresados por el usuario y los examina para saber si se dejó algún parámetro vacío o nulo.
+Ahora volviendo a la línea 17, si los datos fueron validados correctamente, se los guarda para que ahora el usuario sea quien valide los datos a travez de la función validarDatos de la línea 21.
+Esta validación que se encuentra de la linea 32 a la 58, muestra al usuario los valores ingresados para que confirme si estan correctos, excepto el dato de la contraseña que se supone que nadie debe ver.
+si estas 2 validaciones del registro se producen correctamente se considera un registro exitoso y automáticamente loggea al usuario. 
+
+Ahora analizaremos la clase Ingreso que supone que un usuario ya registrado previamente quiere iniciar sesión. 
+Si bien no sería correcta la forma de iniciar sesión, simplemente se hizo como para dejar a la interfaz más bonita. 
+La clase Ingreso comienza pidiendo al usuario que ingrese su usuario y contraseña. Luego, en la línea 11 se llama al método comprobar de la misma clase, que verifica en este caso que el usuario sea Lauta y la contraseña 123.
+Si es así, el usuario se guarda (aunque ya debería estar guardado, pero como dijimos es para la estética o idea de la interfaz) y se realiza el loggeo. 
+
+Una vez realizado el loggeo, se ejecuta la función abrirBiblioteca de la clase Biblioteca. 
+En esta clase se comienza cargando algunos libros para que no comience vacía (linea 14, 15 y 16); luego se presentan diferentes opciones al usuario: Ver Todos, Alquilar Libro, Devolver Libro, Agregar Libro y Eliminar Libro.
+Desarrollaremos cada una de estas opciones. 
+La primera, Ver Todos (línea 34), llama al método mostrarTodosLosLibros de la línea 55. Esta función muestra a todos los libros disponibles o no que estén cargados en la biblioteca. (Luego mencionaremos el método utilizado para realizar esta visualización.)
+La segunda, Alquilar Libro (línea 37), llama al método alquilarLibros de la línea 61. Esta función nos devuelve una lista de todos los libros que se pueden alquilar, es decir, que estan disponibles. Para esto, primeramente permite al usuario filtrar los libros por Título o por Autor mediante la función filtrarLibro.
+La tercera, Devolver Libro (línea 40), llama al método devolverLibro de la línea 220. Esta función muestra al usuario solo los libros que él alquiló y le permite devolverlo lo que hace que el libro este disponible nuevamente.
+La cuarta, Agregar Libro (línea 43), llama al método agregarLibro de la línea 81. Esta función pide al usuario los datos del libro a agregar a la biblioteca, los valida y los agrega a la lista.
+La quinta, Eliminar Libro (línea 46), llama al método eliminarLibro de la línea 180. Esta función permite eliminar cualquier libro que no se encuentre alquilado, es decir, que esté disponible en la biblioteca. 
+
+Para ir terminando tenemos la clase abstracta Notificaciones que posee los métodos, error, informar y confirmar. 
+La clase Disponibilidad se extiende de la clase Notificaciones, y aquí se manejan algunas disposiciones de los libros a travéz de mensajes que son manejados en diferentes partes de la aplicación.
+Por ejemplo la linea 213 o 57 de Biblioteca.

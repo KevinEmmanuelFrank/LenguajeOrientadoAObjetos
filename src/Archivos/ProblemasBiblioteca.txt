@@ -1,0 +1,13 @@
+PROBLEMAS ENFRENTADOS
+
+- Uno de los primeros problemas que tuve fue la lógica ya que al haber tantas posibilidades me perdía en los momentos en los que se debían ejecutar o no ciertas partes de la aplicación.
+
+- Otro problema que enfrenté fue la creación de clases abstractas y su utilización por lo que tuve que reever la clase para poder comprender su implementación. 
+
+- Con respecto a la comprobación de datos tuve que lidiar con muchas pruebas ya que al haber tantas validaciones intenté abarcar muchas posibilidades de error como datos nulos, vacios o botones mal presionados. 
+
+- Sobre el manejo de los libros, creo que fue lo mas complejo ya que había que tener en cuenta que un libro alquilado no podía volverse a alquilar ni tampoco podía ser devuelto. A su vez un libro no podía ser devuelto si no había sido alquilado, esto generó un problema ya que, por ejemplo, al querer eliminar un libro de la biblioteca, su posición en la lista no fue facil de identificar frente a la opción dada por el usuario.
+ Esto está en la clase Biblioteca desde la linea 203 a la 207. Donde tuve que usar split y stream, cosas que no manejaba muy bien pero que fui entendiendo para poder ver correctamente las posiciones de los libros a borrar.
+
+- Muchos de los problemas relacionados a los libros los solucioné también creando diferentes listas, una para la biblioteca, otra para los libros alquilados, etc. 
+ 
